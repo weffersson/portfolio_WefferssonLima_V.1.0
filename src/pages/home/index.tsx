@@ -42,6 +42,8 @@ import {
     return age;
   }
 
+  const age = calculateAge('1993-02-23');
+
 export const Home = (): JSX.Element => {
   const gihubUrl = `https://github.com/${userData.githubUser}`;
   const portfolioUrl = `https://github.com/${userData.githubUser}/portfolio_WefferssonLima_V.1.0`;
@@ -77,7 +79,7 @@ export const Home = (): JSX.Element => {
               projetos
             </Text>
             <Text type="body1" color="grey2">
-              Olá! Meu nome é Weffersson Lima, tenho {calculateAge('1993-02-23')} anos de idade.  Atualmente estou fazendo bacharelado em engenharia de software e estudando desenvolvimento web na Kenzie Academy Brasil, com o objetivo de me tornar um desenvolvedor. Meu compromisso com a tecnologia é trazer soluções de forma simplificada e criativa, buscando facilitar a vida das pessoas. Estou sempre em busca de aprendizado e me esforçando para absorver conhecimento sobre novas tecnologias.
+              Olá! Meu nome é Weffersson Lima, tenho {age} anos de idade.  Atualmente estou fazendo bacharelado em engenharia de software e estudando desenvolvimento web na Kenzie Academy Brasil, com o objetivo de me tornar um desenvolvedor. Meu compromisso com a tecnologia é trazer soluções de forma simplificada e criativa, buscando facilitar a vida das pessoas. Estou sempre em busca de aprendizado e me esforçando para absorver conhecimento sobre novas tecnologias.
             </Text>
             <HeaderButtonsArea>
               <Button as="a" type="primary" href="#projects">
