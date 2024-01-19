@@ -27,7 +27,7 @@ import {
   ProjectsAreaContent,
 } from "./style";
 
-  function calculateAge(dateOfBirth)
+  function calculateAge(dateOfBirth: string): number
   {
     const today = new Date();
     const birthDate = new Date(dateOfBirth);
