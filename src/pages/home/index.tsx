@@ -27,26 +27,24 @@ import {
   ProjectsAreaContent,
 } from "./style";
 
-  function calculateAge(dateOfBirth: string): number
-  {
-    const today = new Date();
-    const birthDate = new Date(dateOfBirth);
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const month = today.getMonth() - birthDate.getMonth();
+function calculateAge(dateOfBirth: string): number {
+  const today = new Date();
+  const birthDate = new Date(dateOfBirth);
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const month = today.getMonth() - birthDate.getMonth();
 
-    if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate()))
-    {
-      age--;
-    }
-
-    return age;
+  if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
   }
 
-  const age = calculateAge('1993-02-23');
+  return age;
+}
+
+const age = calculateAge('1993-02-23');
 
 export const Home = (): JSX.Element => {
   const gihubUrl = `https://github.com/${userData.githubUser}`;
-  const portfolioUrl = `https://github.com/${userData.githubUser}/portfolio_WefferssonLima_V.1.0`;
+  const portfolioUrl = `https://drive.google.com/file/d/1cDtHS8fBkfyZKB3IYqZDaJUOHVhPJS8U/view?usp=sharing`;
 
 
 
@@ -86,7 +84,7 @@ export const Home = (): JSX.Element => {
                 Projetos
               </Button>
               <Button as="a" type="outline" target="_blank" href={portfolioUrl}>
-                Source code
+                Dowload currículo
               </Button>
               <Button
                 color="grey5"
