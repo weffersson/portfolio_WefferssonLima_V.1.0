@@ -37,19 +37,48 @@ export const LogoTipoText = styled("span", {
 });
 
 export const NavbarLinks = styled(Flex, {
+  marginTop: "$1",
+  alignItems: "flex-start",
+  "& a": {
+    width: "100%",
+    justifyContent: "flex-start",
+    paddingLeft: 0,
+    position: "relative",
+  },
+  "& a::after": {
+    content: '""',
+    position: "absolute",
+    width: "0%",
+    height: "2px",
+    bottom: "-1px",
+    left: 0,
+    background: "linear-gradient(to right, purple, pink)",
+    opacity: 0,
+    transition: "width 0.3s ease, opacity 0.3s ease",
+  },
+  "& a:hover::after": {
+    width: "100%",
+    opacity: 1,
+  },
   "@mobile": {
-    marginTop: "$3",
     flexDirection: "column",
-    alignItems: "flex-start",
     "& a": {
       width: "100%",
-      justifyContent: "flex-start",
-      paddingLeft: 0,
+      marginRight: 0,
+    },
+  },
+  "@desktop": {
+    flexDirection: "row",
+    "& a": {
+      width: "auto",
+      marginRight: "1rem",
     },
   },
 });
+
 
 export const NavbarMobileArea = styled("div", {
   display: "flex",
   justifyContent: "space-between",
 });
+
