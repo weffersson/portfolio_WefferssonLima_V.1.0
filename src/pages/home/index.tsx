@@ -43,10 +43,8 @@ function calculateAge(dateOfBirth: string): number {
 const age = calculateAge('1993-02-23');
 
 export const Home = (): JSX.Element => {
-  const gihubUrl = `https://github.com/${userData.githubUser}`;
+  const githubUrl = `https://github.com/${userData.githubUser}`;
   const portfolioUrl = `https://drive.google.com/file/d/1cDtHS8fBkfyZKB3IYqZDaJUOHVhPJS8U/view?usp=sharing`;
-
-
 
   return (
     <main id="home">
@@ -58,33 +56,32 @@ export const Home = (): JSX.Element => {
                 src={`https://github.com/${userData.githubUser}.png`}
                 alt={userData.nameUser}
                 title={userData.nameUser}
-                width={"48px"}
-                height={"48px"}
+                width="48px"
+                height="48px"
               />
               <Text color="grey4">
-                Hello, prazer em te conhecer, eu sou {userData.nameUser}
+                Olá, prazer em conhecê-lo! Eu sou {userData.nameUser}.
               </Text>
             </Flex>
             <Text as="h1" type="heading1" color="grey5">
-              Eu{" "}
+              Criando{" "}
               <Text as="span" type="heading1" color="brand1">
-                amo
+                experiências
               </Text>{" "}
-              criar e{" "}
+              incríveis através da{" "}
               <Text as="span" type="heading1" color="brand1">
-                desenvolver
+                tecnologia
               </Text>{" "}
-              projetos
             </Text>
             <Text type="body1" color="grey2">
-              Olá! Meu nome é Weffersson Lima, tenho {age} anos de idade.  Atualmente estou fazendo bacharelado em engenharia de software e estudando desenvolvimento web na Kenzie Academy Brasil, com o objetivo de me tornar um desenvolvedor. Meu compromisso com a tecnologia é trazer soluções de forma simplificada e criativa, buscando facilitar a vida das pessoas. Estou sempre em busca de aprendizado e me esforçando para absorver conhecimento sobre novas tecnologias.
+              Olá! Meu nome é Weffersson Lima e tenho {age} anos de idade. Atualmente estou cursando bacharelado em Engenharia de Software e estudando desenvolvimento web na Kenzie Academy Brasil, com o objetivo de me tornar um desenvolvedor. Meu compromisso com a tecnologia é trazer soluções de forma simplificada e criativa, buscando facilitar a vida das pessoas. Estou sempre em busca de aprendizado e me esforçando para absorver conhecimentos sobre novas tecnologias.
             </Text>
             <HeaderButtonsArea>
               <Button as="a" type="primary" href="#projects">
-                Projetos
+                Ver Projetos
               </Button>
               <Button as="a" type="outline" target="_blank" href={portfolioUrl}>
-                Dowload currículo
+                Baixar Currículo
               </Button>
               <Button
                 color="grey5"
@@ -92,7 +89,7 @@ export const Home = (): JSX.Element => {
                 css={{ "&:hover": { color: "$grey1" } }}
                 type="circle"
                 target="_blank"
-                href={gihubUrl}
+                href={githubUrl}
               >
                 <FaGithub />
               </Button>
@@ -113,10 +110,11 @@ export const Home = (): JSX.Element => {
                 Meus Projetos
               </Text>
               <Text as="p" type="body1" color="grey2">
-                Alguns dos meus{" "}
+                Confira alguns dos meus{" "}
                 <Text as="span" color="brand5">
                   projetos
-                </Text>
+                </Text>{" "}
+                abaixo.
               </Text>
             </ProjectsAreaSocialMediaMessage>
             <ProjectsAreaContent>
