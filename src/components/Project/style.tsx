@@ -56,7 +56,7 @@ export const Project = styled("article", {
         content: 'New',
         position: "absolute",
         top: "5px",
-        right: "-4rem",
+        right: "-3rem",
         width: "max-content",
         height: "28px",
         backgroundColor: "$brand1",
