@@ -6,4 +6,5 @@ export const userData = {
   emailUser: "wefferssonlima.dasilva@gmail.com",
   instagramUser: "wefferssonlima",
   facebookUser: "",
+  certificates: "https://ella-design.my.canva.site/certificados-weffersson",
 };

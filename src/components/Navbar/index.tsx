@@ -25,7 +25,7 @@ export const NavBar = (): JSX.Element => {
 
   document.title = userData.nameUser;
 
-  const [open, setOpen] = useState(false);
+  const [ open, setOpen ] = useState(false);
 
   const OpenMenu = () => {
     setOpen(!open);
@@ -70,6 +70,9 @@ export const NavLinks = (): JSX.Element => {
       </Button>
       <Button type="btLink" as="a" color="grey4" href={`#social-media`}>
         Social Media
+      </Button>
+      <Button type="btLink" as="a" color="grey4" href={userData.certificates} target="_blank" rel="noopener noreferrer">
+        Certificates
       </Button>
     </NavbarLinks>
   );
