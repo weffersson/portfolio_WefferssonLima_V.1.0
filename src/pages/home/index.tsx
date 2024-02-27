@@ -1,20 +1,14 @@
-// Styles
+import { useEffect, useState } from "react";
 import { Container, Flex } from "@/styles/Global";
 import { Text } from "@/styles/Text";
 import { Button } from "@/styles/Buttons";
-
-// Components
+import { motion } from "framer-motion";
 import { Stack } from "@/components/Stack";
 import { Project } from "@/components/Project";
 import { Contacts } from "@/components/Contacts";
-
-// Data
 import { stackData } from "@/utils/stackData";
 import { userData } from "@/utils/userData";
-
 import { FaGithub } from "react-icons/fa";
-
-// Page Style
 import {
   Header,
   HeaderContent,
@@ -40,11 +34,25 @@ function calculateAge(dateOfBirth: string): number {
   return age;
 }
 
-const age = calculateAge('1993-02-23');
+const age = calculateAge("1993-02-23");
 
 export const Home = (): JSX.Element => {
   const githubUrl = `https://github.com/${userData.githubUser}`;
   const portfolioUrl = `https://drive.google.com/file/d/1cDtHS8fBkfyZKB3IYqZDaJUOHVhPJS8U/view?usp=sharing`;
+
+  const [welcomeMessage, setWelcomeMessage] = useState("");
+
+  useEffect(() => {
+    const currentHour = new Date().getHours();
+
+    if (currentHour < 12) {
+      setWelcomeMessage("Bom dia!");
+    } else if (currentHour < 18) {
+      setWelcomeMessage("Boa tarde!");
+    } else {
+      setWelcomeMessage("Boa noite!");
+    }
+  }, []);
 
   return (
     <main id="home">
@@ -52,15 +60,21 @@ export const Home = (): JSX.Element => {
         <Container>
           <HeaderContent>
             <Flex>
-              <UserImage
-                src={`https://github.com/${userData.githubUser}.png`}
-                alt={userData.nameUser}
-                title={userData.nameUser}
-                width="48px"
-                height="48px"
-              />
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <UserImage
+                  src={`https://github.com/${userData.githubUser}.png`}
+                  alt={userData.nameUser}
+                  title={userData.nameUser}
+                  width="48px"
+                  height="48px"
+                />
+              </motion.div>
               <Text color="grey4">
-                Olá, prazer em conhecê-lo! Eu sou {userData.nameUser}.
+                {welcomeMessage} Eu sou {userData.nameUser}.
               </Text>
             </Flex>
             <Text as="h1" type="heading1" color="grey5">
