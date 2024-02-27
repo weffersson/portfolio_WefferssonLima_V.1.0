@@ -1,8 +1,8 @@
 //!AJUSTES QUE PRECISO  FAZER E "ATUALIZAÇÕES FUTURAS DO CHATBOT":
-  //? OBS: SEPARAR TODOS COMPONENTES DO BOTÃO DE CONTATO E DO ÍCONE DO ROBÔ E DEIXAR EM ARQUIVOS SEPARADOS
-  //? OBS: SEPARAR O HANDLECLICK EM OUTRO COMPONENTE PARA SER USADO NO BOTÃO DE CONTATO 
-  //? OBS: REALIZAR AS MUDANÇAS NA PASTA CORRESPONDENTE DO CHATBOT  
-  //? OBS: FAZER O BACKEND PARA UTILIZAR O CHATBOT (Botpress) 
+//? OBS: SEPARAR TODOS COMPONENTES DO BOTÃO DE CONTATO E DO ÍCONE DO ROBÔ E DEIXAR EM ARQUIVOS SEPARADOS
+//? OBS: SEPARAR O HANDLECLICK EM OUTRO COMPONENTE PARA SER USADO NO BOTÃO DE CONTATO 
+//? OBS: REALIZAR AS MUDANÇAS NA PASTA CORRESPONDENTE DO CHATBOT  
+//? OBS: FAZER O BACKEND PARA UTILIZAR O CHATBOT (Botpress) 
 
 //-------------------------------------//--------------------------------------------------//
 
@@ -13,7 +13,7 @@ import { UserImage } from "@/pages/home/style";
 import { userData } from "@/utils/userData";
 import { FaLinkedinIn, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { Button } from "@/styles/Buttons";
-import React, { useEffect, useRef, MouseEvent, forwardRef, Ref, useState } from "react";
+import { useRef, forwardRef, useState } from "react";
 import { GiRobotAntennas } from "react-icons/gi";
 
 interface RobotIconProps {
@@ -29,8 +29,8 @@ interface RobotIconProps {
 }
 
 const RobotIcon = forwardRef<HTMLDivElement, RobotIconProps>(({ ...props }, forwardedRef) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [showMessage, setShowMessage] = useState(false);
+  const [ isHovered, setIsHovered ] = useState(false);
+  const [ showMessage, setShowMessage ] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -60,6 +60,7 @@ const RobotIcon = forwardRef<HTMLDivElement, RobotIconProps>(({ ...props }, forw
         style={{
           ...props.style,
           color: isHovered ? "#FF0000" : props.style.color,
+          position: props.style.position,
         }}
       />
       {showMessage && (
@@ -68,7 +69,7 @@ const RobotIcon = forwardRef<HTMLDivElement, RobotIconProps>(({ ...props }, forw
             position: "fixed",
             bottom: "70px",
             right: "20px",
-            maxWidth: "250px", 
+            maxWidth: "250px",
             background: "#fff",
             padding: "10px",
             borderRadius: "4px",
@@ -78,7 +79,7 @@ const RobotIcon = forwardRef<HTMLDivElement, RobotIconProps>(({ ...props }, forw
         >
           <Text
             type="body1"
-            color="grey8"
+            color="grey1"
             style={{ wordBreak: "break-word", whiteSpace: "pre-wrap" }}
           >
             Olá! Eu sou WefferBot e estou aqui para dizer que o meu criador, {userData.nameUser}, é de grande importância para a sua empresa. Em breve, estarei sendo atualizado para um melhor funcionamento.
@@ -91,37 +92,6 @@ const RobotIcon = forwardRef<HTMLDivElement, RobotIconProps>(({ ...props }, forw
 
 export const Footer = (): JSX.Element => {
   const chatRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleMouseMove = (event: MouseEvent<Window, MouseEvent>) => {
-      const chatIcon = chatRef.current;
-
-      if (chatIcon) {
-        const mouseX = event.clientX;
-        const mouseY = event.clientY;
-
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
-
-        const iconSize = 32;
-        const offset = 20;
-
-        const maxX = windowWidth - iconSize - offset;
-        const maxY = windowHeight - iconSize - offset;
-
-        const x = Math.min(maxX, Math.max(offset, mouseX - iconSize / 2));
-        const y = Math.min(maxY, Math.max(offset, mouseY - iconSize / 2));
-
-        chatIcon.style.transform = `translate(${x}px, ${y}px)`;
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
 
   return (
     <FooterWrapper id="social-media">
@@ -172,7 +142,7 @@ export const Footer = (): JSX.Element => {
             className="linkedin"
             type="circle"
             as="a"
-target="_blank"
+            target="_blank"
             href={`https://linkedin.com/in/${userData.linkedinUser}`}
           >
             <FaLinkedinIn />
