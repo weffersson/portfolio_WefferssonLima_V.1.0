@@ -1,8 +1,8 @@
 //!AJUSTES QUE PRECISO  FAZER E "ATUALIZAÇÕES FUTURAS DO CHATBOT":
-//? OBS: SEPARAR TODOS COMPONENTES DO BOTÃO DE CONTATO E DO ÍCONE DO ROBÔ E DEIXAR EM ARQUIVOS SEPARADOS
-//? OBS: SEPARAR O HANDLECLICK EM OUTRO COMPONENTE PARA SER USADO NO BOTÃO DE CONTATO 
-//? OBS: REALIZAR AS MUDANÇAS NA PASTA CORRESPONDENTE DO CHATBOT  
-//? OBS: FAZER O BACKEND PARA UTILIZAR O CHATBOT (Botpress) 
+  //? OBS: SEPARAR TODOS COMPONENTES DO BOTÃO DE CONTATO E DO ÍCONE DO ROBÔ E DEIXAR EM ARQUIVOS SEPARADOS
+  //? OBS: SEPARAR O HANDLECLICK EM OUTRO COMPONENTE PARA SER USADO NO BOTÃO DE CONTATO 
+  //? OBS: REALIZAR AS MUDANÇAS NA PASTA CORRESPONDENTE DO CHATBOT  
+  //? OBS: FAZER O BACKEND PARA UTILIZAR O CHATBOT (Botpress) 
 
 //-------------------------------------//--------------------------------------------------//
 
@@ -20,17 +20,17 @@ interface RobotIconProps {
   size: number;
   style: {
     color: string;
-    position: string;
-    bottom: string;
-    right: string;
-    zIndex: number;
-    transition: string;
+    position?: string;
+    bottom?: string;
+    right?: string;
+    zIndex?: number;
+    transition?: string;
   };
 }
 
-const RobotIcon = forwardRef<HTMLDivElement, RobotIconProps>(({ ...props }, forwardedRef) => {
-  const [ isHovered, setIsHovered ] = useState(false);
-  const [ showMessage, setShowMessage ] = useState(false);
+const RobotIcon = forwardRef<HTMLDivElement, RobotIconProps>((props, ref) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -56,11 +56,10 @@ const RobotIcon = forwardRef<HTMLDivElement, RobotIconProps>(({ ...props }, forw
     >
       <GiRobotAntennas
         {...props}
-        ref={forwardedRef}
+        ref={ref}
         style={{
           ...props.style,
           color: isHovered ? "#FF0000" : props.style.color,
-          position: props.style.position,
         }}
       />
       {showMessage && (
