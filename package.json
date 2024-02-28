@@ -20,6 +20,7 @@
     "use-media": "^1.5.0"
   },
   "devDependencies": {
+    "@types/node": "^20.11.21",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@types/react-icons": "^3.0.0",

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, forwardRef } from "react";
 import { GiRobotAntennas } from "react-icons/gi";
-import { Timeout } from "@types/node";
+
 import { userData } from "@/utils/userData";
 
 const RobotIcon = forwardRef((props, ref) => {
@@ -32,11 +32,11 @@ const RobotIcon = forwardRef((props, ref) => {
   );
 
   useEffect(() => {
-    let displayFirstMessageTimeout: Timeout;
-    let displaySecondMessageTimeout: Timeout;
-    let displayThirdMessageTimeout: Timeout;
-    let displayFourthMessageTimeout: Timeout;
-    let hideMessageTimeout: Timeout;
+    let displayFirstMessageTimeout: NodeJS.Timeout;
+    let displaySecondMessageTimeout: NodeJS.Timeout;
+    let displayThirdMessageTimeout: NodeJS.Timeout;
+    let displayFourthMessageTimeout: NodeJS.Timeout;
+    let hideMessageTimeout: NodeJS.Timeout;
 
     const startChat = () => {
       displayFirstMessageTimeout = setTimeout(() => {
