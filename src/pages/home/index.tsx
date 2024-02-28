@@ -9,6 +9,7 @@ import { Contacts } from "@/components/Contacts";
 import { stackData } from "@/utils/stackData";
 import { userData } from "@/utils/userData";
 import { FaGithub } from "react-icons/fa";
+import styled from 'styled-components';
 import {
   Header,
   HeaderContent,
@@ -69,8 +70,8 @@ export const Home = (): JSX.Element => {
                   src={`https://github.com/${userData.githubUser}.png`}
                   alt={userData.nameUser}
                   title={userData.nameUser}
-                  width="48px"
-                  height="48px"
+                    width="80px"
+                    height="80px"
                 />
               </motion.div>
               <Text color="grey4">

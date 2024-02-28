@@ -3,6 +3,7 @@ import { Flex } from "@/styles/Global";
 import { Button } from "@/styles/Buttons";
 import backgroundImg from "@/public/static/img/background/l3.jpeg";
 import dots from "@/public/static/img/background/dots.svg";
+import { keyframes } from "styled-components";
 
 export const Header = styled("header", {
   backgroundColor: "$grey1",
@@ -67,6 +68,9 @@ export const UserImage = styled("img", {
     width: "2.25rem",
     height: "2.25rem",
   },
+  
+  boxShadow: "0 0 10px rgba(255, 0, 255, 0.8), 0 0 20px rgba(255, 0, 255, 0.6), 0 0 30px rgba(255, 0, 255, 0.4), 0 0 40px rgba(255, 0, 255, 0.2)",
+
 });
 
 export const StackSection = styled("div", {
