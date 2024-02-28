@@ -7,5 +7,5 @@ export const userData = {
   instagramUser: "wefferssonlima",
   certificates: "https://ella-design.my.canva.site/certificados-weffersson",
 
-  resumeLink: "https://drive.google.com/file/d/1dl5KtJglwjT8DabJwlAzAVFuxjVEdtOs/view?usp=drive_link",
+  resumeLink: "https://drive.google.com/file/d/1RPuVsjBkYMNLMWfUkTNSwCEfGgfNgumR/view?usp=drive_link",
 };
