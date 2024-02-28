@@ -1,24 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import { GiRobotAntennas } from "react-icons/gi";
 import { userData } from "@/utils/userData";
 
-const RobotIcon = () => {
-  const [ isHovered, setIsHovered ] = useState(false);
-  const [ randomMessage, setRandomMessage ] = useState("");
-  const [ showMessage, setShowMessage ] = useState(false);
+const RobotIcon = forwardRef((props, ref) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [randomMessage, setRandomMessage] = useState<JSX.Element | null>(null);
+  const [showMessage, setShowMessage] = useState(false);
 
   const introductionMessage = `Olá! Eu sou o WefferBot e estou aqui para dizer que o meu criador, ${userData.nameUser}, é de grande importância para a sua empresa. Em breve, estarei sendo atualizado para um melhor funcionamento.`;
   const expertiseMessage = `Você sabia que meu criador ${userData.nameUser} já foi chefe de equipe na empresa Corpvs Segura? Ele possui uma vasta experiência nesse cargo e traz consigo habilidades de liderança e gestão de equipes.`;
   const creatorMessage = `Ah, meu criador ${userData.nameUser} já serviu no Exército Brasileiro, onde desenvolveu uma disciplina exemplar, baseada na hierarquia e no compromisso com a disciplina.`;
   const resumeLink = userData.resumeLink;
   const resumeMessage = (
-    <p>
+    <>
       Saiba um pouco mais sobre o meu criador.{" "}
-      <a href={resumeLink} target="_blank" rel="noopener noreferrer" style={{ color: "blue", fontWeight: "bold", textDecoration: "underline" }}>
+      <a
+        href={resumeLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          color: "blue",
+          fontWeight: "bold",
+          textDecoration: "underline",
+        }}
+      >
         Clique aqui
       </a>{" "}
       para acessar o currículo dele. Tenho certeza de que será de grande utilidade para a sua empresa.
-    </p>
+    </>
   );
 
   useEffect(() => {
@@ -30,28 +39,28 @@ const RobotIcon = () => {
 
     const startChat = () => {
       displayFirstMessageTimeout = setTimeout(() => {
-        setRandomMessage(introductionMessage);
+        setRandomMessage(<span>{introductionMessage}</span>);
         setShowMessage(true);
 
         setTimeout(() => {
           setShowMessage(false);
 
           displaySecondMessageTimeout = setTimeout(() => {
-            setRandomMessage(expertiseMessage);
+            setRandomMessage(<span>{expertiseMessage}</span>);
             setShowMessage(true);
 
             setTimeout(() => {
               setShowMessage(false);
 
               displayThirdMessageTimeout = setTimeout(() => {
-                setRandomMessage(creatorMessage);
+                setRandomMessage(<span>{creatorMessage}</span>);
                 setShowMessage(true);
 
                 setTimeout(() => {
                   setShowMessage(false);
 
                   displayFourthMessageTimeout = setTimeout(() => {
-                    setRandomMessage(resumeMessage);
+                    setRandomMessage(<span>{resumeMessage}</span>);
                     setShowMessage(true);
                   }, 10000); // 15 segundos para a quarta mensagem
                 }, 10000); // 15 segundos para a terceira mensagem
@@ -63,7 +72,6 @@ const RobotIcon = () => {
     };
 
     startChat();
-
 
     return () => {
       clearTimeout(displayFirstMessageTimeout);
@@ -87,14 +95,14 @@ const RobotIcon = () => {
       setShowMessage(false);
     } else {
       setShowMessage(true);
-      if (randomMessage === introductionMessage) {
-        setRandomMessage(expertiseMessage);
-      } else if (randomMessage === expertiseMessage) {
-        setRandomMessage(creatorMessage);
-      } else if (randomMessage === creatorMessage) {
-        setRandomMessage(resumeMessage);
+      if (randomMessage === <span>{introductionMessage}</span>) {
+        setRandomMessage(<span>{expertiseMessage}</span>);
+      } else if (randomMessage === <span>{expertiseMessage}</span>) {
+        setRandomMessage(<span>{creatorMessage}</span>);
+      } else if (randomMessage === <span>{creatorMessage}</span>) {
+        setRandomMessage(<span>{resumeMessage}</span>);
       } else {
-        setRandomMessage(introductionMessage);
+        setRandomMessage(<span>{introductionMessage}</span>);
       }
     }
   };
@@ -138,6 +146,6 @@ const RobotIcon = () => {
       )}
     </div>
   );
-};
+});
 
 export default RobotIcon;
