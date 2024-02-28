@@ -1,11 +1,12 @@
 import React, { useState, useEffect, forwardRef } from "react";
 import { GiRobotAntennas } from "react-icons/gi";
+import { Timeout } from "@types/node";
 import { userData } from "@/utils/userData";
 
 const RobotIcon = forwardRef((props, ref) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [randomMessage, setRandomMessage] = useState<JSX.Element | null>(null);
-  const [showMessage, setShowMessage] = useState(false);
+  const [ isHovered, setIsHovered ] = useState(false);
+  const [ randomMessage, setRandomMessage ] = useState<JSX.Element | null>(null);
+  const [ showMessage, setShowMessage ] = useState(false);
 
   const introductionMessage = `Olá! Eu sou o WefferBot e estou aqui para dizer que o meu criador, ${userData.nameUser}, é de grande importância para a sua empresa. Em breve, estarei sendo atualizado para um melhor funcionamento.`;
   const expertiseMessage = `Você sabia que meu criador ${userData.nameUser} já foi chefe de equipe na empresa Corpvs Segura? Ele possui uma vasta experiência nesse cargo e traz consigo habilidades de liderança e gestão de equipes.`;
@@ -26,16 +27,16 @@ const RobotIcon = forwardRef((props, ref) => {
       >
         Clique aqui
       </a>{" "}
-      para acessar o currículo dele. Tenho certeza de que será de grande utilidade para a sua empresa.
+      para acessar outro tipo de currículo dele. Tenho certeza de que será de grande utilidade para a sua empresa.
     </>
   );
 
   useEffect(() => {
-    let displayFirstMessageTimeout: NodeJS.Timeout;
-    let displaySecondMessageTimeout: NodeJS.Timeout;
-    let displayThirdMessageTimeout: NodeJS.Timeout;
-    let displayFourthMessageTimeout: NodeJS.Timeout;
-    let hideMessageTimeout: NodeJS.Timeout;
+    let displayFirstMessageTimeout: Timeout;
+    let displaySecondMessageTimeout: Timeout;
+    let displayThirdMessageTimeout: Timeout;
+    let displayFourthMessageTimeout: Timeout;
+    let hideMessageTimeout: Timeout;
 
     const startChat = () => {
       displayFirstMessageTimeout = setTimeout(() => {
