@@ -1,4 +1,4 @@
-import React, { useRef, useState, forwardRef } from "react";
+import React, { useRef } from "react";
 import { Container, Flex, Box } from "@/styles/Global";
 import { Text } from "@/styles/Text";
 import { Footer as FooterWrapper } from "./style";
@@ -6,76 +6,9 @@ import { UserImage } from "@/pages/home/style";
 import { userData } from "@/utils/userData";
 import { FaLinkedinIn, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { Button } from "@/styles/Buttons";
-import { GiRobotAntennas } from "react-icons/gi";
+import  RobotIcon  from "./roboticon"
 
-const RobotIcon = forwardRef((props, ref) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [showMessage, setShowMessage] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
-  const handleClick = () => {
-    setShowMessage(true);
-    setTimeout(() => {
-      setShowMessage(false);
-    }, 7000);
-  };
-
-  return (
-    <div
-      onClick={handleClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        cursor: "pointer",
-        position: "fixed",
-        bottom: "20px",
-        right: "20px",
-        zIndex: 9999,
-        transition: "transform 7.0s ease-out",
-      }}
-      
-    >
-      <GiRobotAntennas
-        size={32}
-        style={{
-          color: isHovered ? "#FF0000" : "#808080",
-        }}
-      />
-      {showMessage && (
-        <div
-          style={{
-            position: "fixed",
-            bottom: "70px",
-            right: "20px",
-            maxWidth: "250px",
-            background: "#fff",
-            padding: "10px",
-            borderRadius: "4px",
-            boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-            zIndex: 9999,
-          }}
-        >
-          <Text
-            type="body1"
-            color="grey1"
-            style={{ wordBreak: "break-word", whiteSpace: "pre-wrap" }}
-          >
-            Olá! Eu sou WefferBot e estou aqui para dizer que o meu criador, {userData.nameUser}, é de grande importância para a sua empresa. Em breve, estarei sendo atualizado para um melhor funcionamento.
-          </Text>
-        </div>
-      )}
-    </div>
-  );
-});
-
-export const Footer = () => {
+const Footer = () => {
   const chatRef = useRef(null);
 
   return (
@@ -138,3 +71,5 @@ export const Footer = () => {
     </FooterWrapper>
   );
 };
+
+export default Footer;
