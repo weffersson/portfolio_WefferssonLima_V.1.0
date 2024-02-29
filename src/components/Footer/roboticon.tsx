@@ -120,6 +120,7 @@ const RobotIcon = forwardRef((props, ref) => {
         right: "20px",
         zIndex: 9999,
         transition: "transform 7.0s ease-out",
+        
       }}
     >
       <GiRobotAntennas
